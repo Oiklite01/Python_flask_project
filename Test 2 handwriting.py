@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html',disp="Block",disp2="None")
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -43,32 +43,37 @@ def upload():
         pfilter=re.compile('([?!.]\s*)')
         split_text=pfilter.split(ptext)
         text=''.join([i.capitalize() for i in split_text])
-        
-        # Load the font
-        font = ImageFont.truetype('C:\Windows\Fonts\BRADHITC.TTF', size=52)
 
-        # Ruled Page vector final (converted to jpg)
-        image = Image.open(r'C:\Users\arora\Desktop\Coding\Python Flask project main\test\ruled.jpg')
-
+        return render_template('index.html',text=text,disp="none" ,disp2="block")
         
-        draw = ImageDraw.Draw(image)
-        #draw.text((190, 220), text, font=font, fill=(0,0,0,20))
-        #implementing wrap text feature for 1 page
-        lines=textwrap.wrap(text,width=65)
-        y_text = 263
-        for line in lines:
-            width, height = font.getsize(line)
-            draw.text((300,y_text),line,font=font,fill='blue',stroke_fill='blue',stroke_width=1)
-            y_text += 62.4
-            if(y_text>image.size[1]):
-                break
-
-        
-        image.save('static/temp.png')
-        image_path = 'static/temp.png'
-        return render_template('result.html',image_path=image_path)
-    
     return 'Invalid file format'
+
+@app.route('/process',methods=['POST'])
+def process():
+    # Load the font
+    text=request.form['final']
+    font = ImageFont.truetype('C:\Windows\Fonts\BRADHITC.TTF', size=52)
+
+    # Ruled Page vector final (converted to jpg)
+    image = Image.open(r'C:\Users\arora\Desktop\Coding\Python Flask project main\test\ruled.jpg')
+
+    
+    draw = ImageDraw.Draw(image)
+    #draw.text((190, 220), text, font=font, fill=(0,0,0,20))
+    #implementing wrap text feature for 1 page
+    lines=textwrap.wrap(text,width=65)
+    y_text = 263
+    for line in lines:
+        width, height = font.getsize(line)
+        draw.text((300,y_text),line,font=font,fill='blue',stroke_fill='blue',stroke_width=1)
+        y_text += 62.4
+        if(y_text>image.size[1]):
+            break
+
+    
+    image.save('static/temp.png')
+    image_path = 'static/temp.png'
+    return render_template('result.html',image_path=image_path)
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ['wav', 'mp3']

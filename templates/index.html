@@ -2,15 +2,35 @@
 <html>
 <head>
     <title>Speech to Text</title>
+    <style>
+    textarea {
+        width: 100%;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        font-size: 16px;
+        resize: none;
+      }
+      </style>
 </head>
 <body>
     <h1>Speech to Text</h1>
-    <div id="audio">
+    <div id="audio" style="display:{{ disp }}">
     <p>1 Page contains around 2300 characters thats around 30 lines </p>
     <form action="/upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" accept=".wav,.mp3">
         <input type="submit" value="Upload">
     </form>
+    </div>
+    <div id="div2" style="display:{{ disp2 }};">
+        <h3>Find below the processed text and hit confirm to convert to hand writing</h3>
+        <form action = "/process" method="post"> 
+            <textarea name="final">{{text}}</textarea>
+            <input type ='submit' value = "Confirm">
+        </form>
     </div>
 </body>
 </html>
