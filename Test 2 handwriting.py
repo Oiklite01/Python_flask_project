@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request
 import speech_recognition as sr
+import textwrap
 from PIL import Image, ImageDraw, ImageFont
-
+from deepmultilingualpunctuation import PunctuationModel
+import re
+model=PunctuationModel()
 app = Flask(__name__)
 
 @app.route('/')
@@ -22,28 +25,45 @@ def upload():
     
     # Check if the file is valid audio
     if file and allowed_file(file.filename):
-        recognizer = sr.Recognizer()
+        
+        
+        #speech to text
+        r = sr.Recognizer()
         
         # Read the audio file
         audio = sr.AudioFile(file)
         
         # Convert speech to text
         with audio as source:
-            audio_data = recognizer.record(source)
-            text = recognizer.recognize_google(audio_data)
-            # font_path = f"fonts\BRADHITC.ttf"
-
+            r.dynamic_energy_threshold = True
+            r.adjust_for_ambient_noise(source=source, duration=0.3)
+            audio_data = r.record(source)
+            raw_text = r.recognize_google(audio_data,language="en-IN")# MAIN TEXT CONVERTED 
+        ptext=model.restore_punctuation(raw_text)
+        pfilter=re.compile('([?!.]\s*)')
+        split_text=pfilter.split(ptext)
+        text=''.join([i.capitalize() for i in split_text])
+        
         # Load the font
-        font = ImageFont.truetype('C:\Windows\Fonts\BRADHITC.TTF', size=54)
+        font = ImageFont.truetype('C:\Windows\Fonts\BRADHITC.TTF', size=52)
 
-        # Create a blank image with white background
-        image = Image.open(r'C:\Users\arora\Desktop\Coding\Python Flask project main\test\testing.jpg')
+        # Ruled Page vector final (converted to jpg)
+        image = Image.open(r'C:\Users\arora\Desktop\Coding\Python Flask project main\test\ruled.jpg')
 
-        # Draw the text on the image using the loaded font
+        
         draw = ImageDraw.Draw(image)
-        draw.text((190, 220), text, font=font, fill=(0,0,0,20))
+        #draw.text((190, 220), text, font=font, fill=(0,0,0,20))
+        #implementing wrap text feature for 1 page
+        lines=textwrap.wrap(text,width=65)
+        y_text = 263
+        for line in lines:
+            width, height = font.getsize(line)
+            draw.text((300,y_text),line,font=font,fill='blue',stroke_fill='blue',stroke_width=1)
+            y_text += 62.4
+            if(y_text>image.size[1]):
+                break
 
-        # Save the image as a temporary file
+        
         image.save('static/temp.png')
         image_path = 'static/temp.png'
         return render_template('result.html',image_path=image_path)

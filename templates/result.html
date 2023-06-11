@@ -2,9 +2,20 @@
 <html>
 <head>
     <title>Conversion Result</title>
+    <style>
+        img.disp {
+          height: 35%;
+          width: 35%;
+        }
+    </style>
 </head>
 <body>
     <h1>Conversion Result</h1>
-    <img src="{{  url_for('static', filename='temp.png')  }}" alt="Handwritten Text">
+    <h3>Find preview image below</h3>
+    <img class = "disp" src="{{  url_for('static', filename='temp.png')  }}" alt="Handwritten Text"><br>
+    <a href="{{  url_for('static', filename='temp.png')  }}" download="Handwritten.png"><button>Download!</button></a>
+    <form action='/' method='get'>
+        <input type='submit' value="Try our services again" >
+    </form>
 </body>
 </html>
