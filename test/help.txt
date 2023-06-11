@@ -1,4 +1,6 @@
 You could use textwrap.wrap to break text into a list of strings, each at most width characters long:
+made some changes here
+
 
 
 #w,h is image size
