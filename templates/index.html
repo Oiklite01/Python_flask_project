@@ -4,8 +4,8 @@
     <title>Speech to Text</title>
     <style>
     textarea {
-        width: 100%;
-        height: 150px;
+        width: 62%;
+        height: 140px;
         padding: 12px 20px;
         box-sizing: border-box;
         border: 2px solid #ccc;
@@ -18,13 +18,40 @@
 </head>
 <body>
     <h1>Speech to Text</h1>
-    <div id="audio" style="display:{{ disp }}">
+    
+    
+    <div id="audio_file" style="display:{{ disp }}">
     <p>1 Page contains around 2300 characters thats around 30 lines </p>
+    <h4>Upload Audio File<h4>
     <form action="/upload" method="post" enctype="multipart/form-data">
         <input type="file" name="file" accept=".wav,.mp3">
         <input type="submit" value="Upload">
     </form>
+    <h5>OR<h5>
     </div>
+    
+    
+    <div class="container" style="display:{{ disp }}">
+        <h4>Record Live Audio<h4>
+        <div class="display">
+
+        </div>
+
+        <div class="controllers">
+
+        </div>
+        <h5>OR<h5>
+    </div>
+
+
+
+    <div id='direct' style="display:{{ disp }}">
+        <form action='/tth' method='post'>
+            <input type="submit" value="Use Text to Handwriting Directly">
+        </form>
+    </div>
+    
+    
     <div id="div2" style="display:{{ disp2 }};">
         <h3>Find below the processed text and hit confirm to convert to hand writing</h3>
         <form action = "/process" method="post"> 
@@ -33,4 +60,5 @@
         </form>
     </div>
 </body>
+<script src="{{ url_for('static',filename='script/vrecorder.js') }}"> </script>
 </html>
