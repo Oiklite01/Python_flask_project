@@ -1,0 +1,75 @@
+#main{
+    background: #202124;
+    font-family: 'Ysabeau SC';
+    width: 100%;
+    height: 93vh;
+    position: absolute;
+    color: #e1dede;
+  }
+  #content{
+    margin-left: 10px;
+  }
+  #main h1{
+    margin-top:-1px ;
+    font-weight: 700;
+    font-size: 45px;
+    margin-bottom: -30px;
+  }
+  #main h3{
+    font-weight: 700;
+    font-size: 25px;
+  }
+  
+  .but{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .link, .disp, .form {
+        margin: -15px 20px; 
+      }
+
+}
+  button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #555;
+  }
+  
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  }
+
+  #retry {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #333;
+    color: #fff;
+    border-radius: 4px;
+    border: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  #retry:hover {
+    background-color: #555;
+  }
+  
+  #retry:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+  }

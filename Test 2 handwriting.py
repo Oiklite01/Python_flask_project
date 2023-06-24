@@ -16,6 +16,10 @@ AudioSegment.ffprobe = "C:/ffmpeg/ffmpeg-2023-06-19-git-1617d1a752-full_build/bi
 
 
 @app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/index')
 def index():
     return render_template('index.html',disp="Block",disp2="None")
 
@@ -47,6 +51,10 @@ def upload():
 def tth():
     return render_template('index.html',text='',disp="none" ,disp2="block")
 
+@app.route('/about',methods=['GET'])
+def about():
+    return render_template('about.html')
+
 
 @app.route('/upload_audio', methods=['POST'])
 def upload_audio():
@@ -58,7 +66,10 @@ def upload_audio():
     audio = sr.AudioFile(audio_file)
     # Convert speech to text and process it
     global recText
-    recText=format(audio)
+    try:
+        recText=format(audio)
+    except:
+        recText='Audio Not Found'
     return ''
 
 
@@ -68,23 +79,21 @@ def upload_audio():
 def process():
     
     text=request.form['final']
-    print(text)
-    
+    a=text.split('\r\n')
     # Load the font
     font = ImageFont.truetype('fonts/Myfont-Regular.ttf',size=54)
-
     # Ruled Page vector final (converted to jpg)
     image = Image.open('test/ruled1.jpg')
     draw = ImageDraw.Draw(image)
-    #implementing wrap text feature for 1 page
-    lines=textwrap.wrap(text,width=75)
     y_text = 277
-    for line in lines:
-        width, height = font.getsize(line)
-        draw.text((300,y_text),line,font=font,fill='#000c1f')
-        y_text += 62.3
-        if(y_text>image.size[1]):
-            break   
+    #implementing wrap text feature for 1 page
+    for split_text in a:
+        lines=textwrap.wrap(split_text,width=75)
+        for line in lines:
+            draw.text((300,y_text),line,font=font,fill='#000c1f')
+            y_text += 62.3
+            if(y_text>image.size[1]):
+                break   
     image.save('static/temp.png')
     image_path = 'static/temp.png'
     return render_template('result.html',image_path=image_path)

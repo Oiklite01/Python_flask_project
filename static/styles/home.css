@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing Script');
+@import url('https://fonts.googleapis.com/css?family=Ysabeau SC');
+
+.context22 {
+    font-family: 'Ysabeau SC';
+    width: 100%;
+    position: absolute;
+    top:40vh;
+    text-shadow: 5px 5px #000;
+    
+    
+}
+
+.context22 h1{
+    text-align: center;
+    color: #e1dede;
+    font-size: 55px;
+    font-weight: 600;
+}
+.context22 h2{
+    text-align: center;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.area22{
+    background: #202124;  
+    background: -webkit-linear-gradient(to left, #1c1c1c, #000);  
+    width: 100%;
+    height:100vh;
+
+    
+   
+}
+
+.circles22{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 97%;
+    overflow: hidden;
+}
+
+.circles{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    
+}
+.circlesgum{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+	border-radius:50%;
+	height:16px;
+	width:16px;
+	border:2px #20ce88 solid;
+	background:#000;
+}
+.circlesgum:nth-child(1){
+     left: 30%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 0s;
+     animation: animate 15s linear infinite;
+}
+.circlesgum:nth-child(2){
+     left: 60%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 3s;
+}
+.circlesgum:nth-child(3){
+     left: 40%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 9s;
+}
+.circlesgum:nth-child(4){
+     left: 40%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 15s;
+}
+.circles:nth-child(1){
+    left: 25%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 0s;
+}
+
+
+.circles:nth-child(2){
+    left: 10%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 2s;
+    animation-duration: 6s;
+}
+
+.circles:nth-child(3){
+    left: 70%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 2s;
+}
+.circles:nth-child(11){
+    left: 70%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 0s;
+}
+
+
+.circles:nth-child(4){
+    left: 40%;
+    width: 32px;
+    height: 32px;
+    animation-delay: 0s;
+    animation-duration: 13s;
+}
+
+.circles:nth-child(5){
+    left: 65%;
+    width: 40px;
+    height: 40px;
+    animation-delay: 0s;
+}
+
+.circles:nth-child(6){
+    left: 75%;
+    width: 30px;
+    height: 30px;
+    animation-delay: 1s;
+}
+
+.circles:nth-child(7){
+    left: 35%;
+    width: 16px;
+    height: 16px;
+    animation-delay: 5s;
+}
+
+.circles:nth-child(8){
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    animation-delay: 15s;
+    animation-duration: 30s;
+}
+
+.circles:nth-child(9){
+    left: 20%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 2s;
+    animation-duration: 25s;
+}
+
+.circles:nth-child(10){
+    left: 85%;
+    width: 32px;
+    height: 32px;
+    animation-delay: 0s;
+    animation-duration: 7s;
+}
+
+.circles:nth-child(11){
+    left: 55%;
+    width: 32px;
+    height: 32px;
+    animation-delay: 0s;
+    animation-duration: 3s;
+}
+.circles:nth-child(11){
+    left: 30%;
+    width: 32px;
+    height: 32px;
+    animation-delay: 0s;
+    animation-duration: 7s;
+}
+
+@keyframes animate {
+
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
+}
+
+
+
+
+@-webkit-keyframes tictacshake {
+    0%    {top:0;}
+    50%   {top:20px;}
+    100%  {top:0;}
+}
+
+@keyframes tictacshake {
+    0%    {top:0;}
+    50%   {top:20px;}
+    100%  {top:0;}
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SoundScribe</title>
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/const.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/about.css') }}">
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+          <div class="nav-title">
+            Sound-Scribe
+          </div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        
+        <div class="nav-links">
+          <a href="/" >Home</a>
+          <a href="/index" >Application</a>
+          <a href="/about" >About Me</a>
+          <a href="https://www.linkedin.com/in/pratyush-arora-bb62aa222/" >LinkedIn</a>
+          <a href="mailto:arora.pratyush01@gmail.com" >Contact</a>
+        </div>
+      </div>
+</head>
+<body>
+    <div class="nav-wrapper" style="height:50px;" > </div>
+
+
+
+    <div class="about">
+      <div class="aboutme">
+        <h4>About Application</h4>
+        <p id='info1'>
+            Sound-Scribe works with the user providing audio input.Then it works its magic, 
+            converting the audio into text and even adding the necessary punctuation.
+            This application offers users the opportunity for a final edit, ensuring 
+            complete control over their written content. Sound-Scribe takes that 
+            final text and transforms it into beautiful, elegant handwriting. 
+            <p class='quote'> " Sound-Scribe, where spoken words become artful handwriting "</p><br><br>
+      </div>
+      <div class="aboutme">
+        <h4>About Me</h4>
+        <div style="text-align:center;">
+        <img src="{{  url_for('static', filename='Myimage.jpeg')  }}">
+        </div>
+        <p id='info' >
+            Name:- Pratyush Arora<br>
+            Program:- B.Tech CSE<br>
+            University:- Amity University Noida<br>
+        </p>
+      </div>
+    </div>    
+    <script src="{{ url_for('static',filename='script/scroll.js') }}"> </script>
+</body>
+</html>

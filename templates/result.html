@@ -1,21 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Conversion Result</title>
+    <title>SoundScribe</title>
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/const.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/result.css') }}">
     <style>
         img.disp {
-          height: 35%;
-          width: 35%;
+          height: 30%;
+          width: 30%;
         }
     </style>
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+          <div class="nav-title">
+            Sound-Scribe
+          </div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        
+        <div class="nav-links">
+          <a href="/" >Home</a>
+          <a href="/index" >Application</a>
+          <a href="/about" >About Me</a>
+          <a href="https://www.linkedin.com/in/pratyush-arora-bb62aa222/" >LinkedIn</a>
+          <a href="mailto:arora.pratyush01@gmail.com" >Contact</a>
+        </div>
+      </div>
 </head>
 <body>
-    <h1>Conversion Result</h1>
-    <h3>Find preview image below</h3>
-    <img class = "disp" src="{{  url_for('static', filename='temp.png')  }}" alt="Handwritten Text"><br>
-    <a href="{{  url_for('static', filename='temp.png')  }}" download="Handwritten.png"><button>Download!</button></a>
-    <form action='/' method='get'>
-        <input type='submit' value="Try our services again" >
-    </form>
+    <div class="nav-wrapper" style="height:50px;"></div>
+    <div id='main'>
+      <div id='content'>
+        <h1>Conversion Result</h1>
+        <h3>Find preview image below</h3>
+        <div class='but'>
+            <a class='link' href="{{  url_for('static', filename='temp.png')  }}" download="Handwritten.png"><button>Download!</button></a>
+            <form action='/index' method='get' class='form'>
+              <input type="submit" value="Try Our Services Again" id='retry'>
+            </form>
+            <img class = "disp" src="{{  url_for('static', filename='temp.png')  }}" alt="Handwritten Text"><br>
+        </div>
+      <div>
+    </div>
+
 </body>
 </html>

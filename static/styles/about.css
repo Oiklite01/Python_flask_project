@@ -1,0 +1,48 @@
+.about{
+    background: #202124;
+    font-family: 'Ysabeau SC';
+    width: 100%;
+    position: absolute;
+    top:2vh;
+  }
+.about img{
+    margin:10px 10px 10px 10px;
+    height: 266px;
+    width: 238px;
+}
+.about h4{
+    text-align: center;
+    color: #e1dede;
+    font-size: 55px;
+    font-weight: 600;
+    text-shadow: 5px 5px #000
+}
+.about > .aboutme{
+  background: #0c0c0c;
+  border: #000;
+  border-radius: 5%;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+#info1{
+    text-align: center;
+    color: #fff;
+    font-size: 38px;
+    font-weight: 400;
+    margin: 0px 15px 25px 15px;
+  }
+.quote{
+    text-align: center;
+    font-family: 'Dancing Script';
+    font-size: 45px;
+    font-weight: 300;
+    color: #d8d8d8c0;
+    text-shadow: 6px 6px #000
+}
+  #info{
+    text-align: center;
+    color: #fff;
+    font-size: 43px;
+    font-weight: 500;
+    margin: 0px 15px 25px;
+  }

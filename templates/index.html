@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Speech to Text</title>
+    <title>SoundScribe</title>
+    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/const.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/index.css') }}">
     <style>
     textarea {
-        width: 62%;
+        width: 100%;
         height: 140px;
-        padding: 12px 20px;
         box-sizing: border-box;
         border: 2px solid #ccc;
         border-radius: 4px;
@@ -15,50 +17,77 @@
         resize: none;
       }
       </style>
+      <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+          <div class="nav-title">
+            Sound-Scribe
+          </div>
+        </div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+        
+        <div class="nav-links">
+          <a href="/" >Home</a>
+          <a href="/index" >Application</a>
+          <a href="/about" >About Me</a>
+          <a href="https://www.linkedin.com/in/pratyush-arora-bb62aa222/" >LinkedIn</a>
+          <a href="mailto:arora.pratyush01@gmail.com" >Contact</a>
+        </div>
+      </div>
 </head>
 <body>
-    <h1>Speech to Text</h1>
-    
-    
-    <div id="audio_file" style="display:{{ disp }}">
-    <p>1 Page contains around 2300 characters thats around 30 lines </p>
-    <h4>Upload Audio File<h4>
-    <form action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" accept=".wav,.mp3">
-        <input type="submit" value="Upload">
-    </form>
-    <h5>OR<h5>
-    </div>
-    
-    
-    <div class="container" style="display:{{ disp }}">
-        <h4>Record Live Audio<h4>
-        <div class="display">
+    <div id='nav-wrapper' style='height:50px;'> </div>
+<div id='main'>
+    <div class='wrapper'>
+        <div class='page1'>
+            <div id="audio_file" style="display:{{ disp }}" class='div1'>
+            <h4>Upload Audio File<h4>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" accept=".wav,.mp3" id='file-upload'>
+                <input type="submit" value="Upload" id='button'>
+            </form>    
+        </div><br><br>
+            
+            
+            <div class="container" style="display:{{ disp }}">
+                <h4>Record Live Audio<h4>
+                <div class="display">
 
+                </div>
+
+                <div class="controllers">
+
+                </div>
+                
+            </div><br><br>
+
+
+
+            <div id='direct' style="display:{{ disp }}" class='div2'>
+                <h4>Text to Speech Directly<h4>
+                <form action='/tth' method='post'>
+                    <input type="submit" value="Next" id='button'>
+                </form>
+            </div>
+        
+            <div style="display:{{ disp }}"><p id='note'>PS: 1 Page contains around 2300 characters thats around 30 lines ^u^ </p></div>
         </div>
-
-        <div class="controllers">
-
-        </div>
-        <h5>OR<h5>
-    </div>
-
-
-
-    <div id='direct' style="display:{{ disp }}">
-        <form action='/tth' method='post'>
-            <input type="submit" value="Use Text to Handwriting Directly">
-        </form>
-    </div>
     
-    
-    <div id="div2" style="display:{{ disp2 }};">
-        <h3>Find below the processed text and hit confirm to convert to hand writing</h3>
-        <form action = "/process" method="post"> 
-            <textarea name="final">{{text}}</textarea>
-            <input type ='submit' value = "Confirm">
-        </form>
+            <div id="div3" style="display:{{ disp2 }};">
+                <h3>Find below the processed text and hit confirm to convert to hand writing</h3>
+                <form action = "/process" method="post"> 
+                    <textarea name="final" id='text'>{{text }}</textarea>
+                    <input type ='submit' value = "Confirm" id='button' >
+                </form>
+          </div>
     </div>
+</div>
 </body>
 <script src="{{ url_for('static',filename='script/vrecorder.js') }}"> </script>
 </html>
