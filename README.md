@@ -10,7 +10,7 @@
 
 ## Description
 
-This application is designed to convert spoken words into handwritten text. It utilizes speech recognition technology to transcribe speech and then generates the corresponding text in a handwriting style. The output can be saved as an image or a text file, depending on user preferences.
+This application is designed to convert spoken words into handwritten text. It utilizes speech recognition technology to transcribe speech and then generates the corresponding text in a handwriting style. The output can be saved as an image.
 
 ## Features
 
