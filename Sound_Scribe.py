@@ -83,7 +83,7 @@ def process():
     # Load the font
     font = ImageFont.truetype('fonts/Myfont-Regular.ttf',size=54)
     # Ruled Page vector final (converted to jpg)
-    image = Image.open('test/ruled1.jpg')
+    image = Image.open('static/images/ruled1.jpg')
     draw = ImageDraw.Draw(image)
     y_text = 277
     #implementing wrap text feature for 1 page
@@ -94,9 +94,8 @@ def process():
             y_text += 62.3
             if(y_text>image.size[1]):
                 break   
-    image.save('static/temp.png')
-    image_path = 'static/temp.png'
-    return render_template('result.html',image_path=image_path)
+    image.save('static/images/temp.png')
+    return render_template('result.html')
 
 
 

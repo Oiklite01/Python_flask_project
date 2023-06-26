@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 #main{
     background: #202124;
     font-family: 'Ysabeau SC';
@@ -34,7 +35,7 @@
     height: 200px;
     padding: 10px;
     font-size: 20px;
-    font-family: 'Ysabeau SC';
+    font-family: 'Poppins';
     box-shadow: 4px 4px 10px rgb(87, 78, 78);
     border: 2px solid #333;
     background-color: #222;

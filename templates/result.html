@@ -42,11 +42,11 @@
         <h1>Conversion Result</h1>
         <h3>Find preview image below</h3>
         <div class='but'>
-            <a class='link' href="{{  url_for('static', filename='temp.png')  }}" download="Handwritten.png"><button>Download!</button></a>
+            <a class='link' href="{{  url_for('static', filename='images/temp.png')  }}" download="Handwritten.png"><button>Download!</button></a>
             <form action='/index' method='get' class='form'>
               <input type="submit" value="Try Our Services Again" id='retry'>
             </form>
-            <img class = "disp" src="{{  url_for('static', filename='temp.png')  }}" alt="Handwritten Text"><br>
+            <img class = "disp" src="{{  url_for('static', filename='images/temp.png')  }}" alt="Handwritten Text"><br>
         </div>
       <div>
     </div>
